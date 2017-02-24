@@ -1,0 +1,18 @@
+<%= link_to("Back to Subject List", {action: 'index'}, :class => 'back-link') %>
+
+<div class="admin_users_edit">
+	<h2>Delete Admin User</h2>
+
+	<%= form_tag({action: 'destroy', id: @admin_user.id}) do %>
+		
+		<p>Are you sure you want to permanetly delete this Admin User ?</p>
+		
+		<p class="reference-name"><%= @admin_user.name %></p>
+
+	<div class="form-buttons">
+		<%= submit_tag('Delete Admin User') %>
+	</div>
+
+	<% end %>
+
+</div>

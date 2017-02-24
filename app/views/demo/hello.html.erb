@@ -1,0 +1,44 @@
+<h1>Demo#hello template</h1>
+<p>Hello World Mates !!!</p>
+
+<%= 1+3 %>
+
+<% variable='Rails' %>
+<br>
+<%= "Programing in #{variable} !!!" %>
+
+<br>
+<% 5.times do |n| %>
+   <% if n > 0 %>
+	   <br>
+	   <%= "Executed #{n} times" %>
+   <% end %>
+<% end %>
+
+<br>
+<p>Looping an array</p>
+
+<% @array.each do |n| %>
+   <%= n%> <br>
+<% end %>
+
+<br>
+
+<a href="/demo/index">Index Page 1</a>
+<br>
+<%= link_to("Index page 2", 
+{:controller => 'demo', :action => 'index'}) 
+%>
+
+<br>
+
+ID: <%= params[:id] %>
+<br>
+ID: <%= @id %>
+<br>
+PAGE: <%= params['page'] %>
+<br>
+NEXT PAGE: <%= @page + 1 %>
+<hr>
+
+<%= params.inspect %>

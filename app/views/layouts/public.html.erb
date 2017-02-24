@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<title>Simple CMS<%= " | #{@page_title} " if @page_title%></title>
+	<link rel="stylesheet" href="">
+	<%= stylesheet_link_tag("application", :media => 'all') %>
+	<style>
+	 span.status {display: block; width: 10px; height: 10px; margin: 0.25em auto; padding: 0; border: 1px solid #000000;}
+	 span.status.true {background: green; color: green;}
+	 span.status.false {background: red; color: red;}
+	</style>
+</head>
+
+<body>
+	<div class="header">
+		<h1>Simple CMS</h1>
+	</div>
+	<div class="main">
+
+		<div id="navigation">
+			<%= render(:partial => 'layouts/navigation', :locals => {:subjects => @subjects}) %>
+		</div>
+
+		<div class="content">
+			<%= yield %>
+		</div>
+
+		<div class="clear">
+			<!--  -->
+		</div>
+	</div>
+	<div class="footer">
+		<p id="copyright">&copy; cms.com / Jean Santos</p>
+	</div>
+</body>
+</html>

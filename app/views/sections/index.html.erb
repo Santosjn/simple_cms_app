@@ -1,0 +1,40 @@
+<% @page_title = "Pages" %>
+
+<%= link_to("<< Back to Pages", {:controller => 'pages', :action => 'index', subject_id: @page.subject.id} , :class => 'back link') %>
+
+<div class="sections_index">
+	<h2>Sections</h2>
+	
+	<%= link_to("Add New Section", {:action => 'new', page_id: @page.id} , :class => 'action new') %>
+
+	<table class="listing" summary="Section List">
+	 <tr class="header">	 	
+	 	<th>Name</th>
+	 	<th>Page</th>
+	 	<th>Position</th>
+	 	<th>Visible</th>
+	 	<th>ContentType</th>
+	 	<th>Content</th>
+	 </tr>
+
+		<% @sections.each do |section| %>
+		<tr>
+		<td><%= section.name %></td>
+		<td><%= section.page.name if section.page %></td>
+		<td><%= section.position %></td>
+		<td class="center"><%= status_tag(section.visible) %></td>
+		<td><%= section.content_type %></td>
+		<td><%= section.content %></td>		
+		<td class="actions">
+			<%= link_to("Show", {action: 'show', id: section.id, page_id: @page.id} , :class => 'action show') %>
+			<%= link_to("Edit", {action: 'edit', id: section.id, page_id: @page.id} , :class => 'action edit') %>
+			<%= link_to("Delete", {action: 'delete', id: section.id, page_id: @page.id} , :class => 'action delete') %>
+
+			</td>
+		</tr>		
+		
+	  <% end %>
+
+	</table>
+	
+</div>

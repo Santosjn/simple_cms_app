@@ -1,0 +1,18 @@
+<% subjects ||= [] %>
+
+<ul>
+	<% subjects.each do |subject| %>	
+	<li>
+		<% subject.name %>
+
+		<ul >
+			<% subject.pages.sorted.each do |page| %>
+				<% if page.visible %>
+				<li> <%= link_to_unless_current(page.name, :action => 'show', :permalink => page.permalink) %> </li>
+				<% end %>
+			<% end %>
+		</ul>
+	</li>
+	<% end %>
+
+</ul>
